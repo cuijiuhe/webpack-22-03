@@ -23,6 +23,7 @@ document.body.appendChild(zl)
 
 const divs = document.createElement('div')
 divs.innerHTML = txt
+divs.classList.add('divs-bg')
 divs.style.cssText = 'color: green'
 document.body.appendChild(divs)
 

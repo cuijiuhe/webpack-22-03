@@ -22,3 +22,8 @@
   75%{-webkit-transform:rotate(270deg);}
   100%{-webkit-transform:rotate(360deg);}
 }
+
+.divs-bg {
+  /* 通过资源模块可以直接使用图片资源 */
+  background-image: url(./assets/jiantoudian.png) !important;   
+}

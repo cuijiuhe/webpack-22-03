@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MinCssExtractPlugin = require('mini-css-extract-plugin')  //从style标签改为link形式引入css
+const MinCssExtractPlugin = require('mini-css-extract-plugin')  //抽离css 从style标签改为link形式引入css 基于webpack5
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')  //压缩css
 
 module.exports = {
   entry: './src/index.js',
@@ -60,6 +61,11 @@ module.exports = {
         test: /\.(css|less)$/,
         use: [MinCssExtractPlugin.loader, 'css-loader', 'less-loader'] //从后往前加载 先用css-loader解析css文件之后用style-loader将css放置到页面
       }
+    ]
+  },
+  optimization: { //优化配置项
+    minimizer: [
+      new CssMinimizerPlugin()  //使用需要配合之mode为production
     ]
   }
 }
