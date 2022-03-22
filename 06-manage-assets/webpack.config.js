@@ -34,7 +34,7 @@ module.exports = {
   devtool: 'inline-source-map',  //开发环境报错查看
   
   module: {
-    rules: [
+    rules: [  
       {
         test: /\.png$/,
         type: 'asset/resource'
@@ -56,10 +56,15 @@ module.exports = {
           }
         }
       },
+      
 
       {
         test: /\.(css|less)$/,
         use: [MinCssExtractPlugin.loader, 'css-loader', 'less-loader'] //从后往前加载 先用css-loader解析css文件之后用style-loader将css放置到页面
+      },
+      { //载入字体
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        type: 'asset/source'
       }
     ]
   },
